@@ -25,7 +25,7 @@ public class OrderLine {
 
     @ManyToOne
     @JoinColumn(name = "ORDER_ID",nullable = false)
-    private se.chasacademy.databaser.jpaorders.models.Order order;
+    private Order order;
 
     public Long getId() {
         return id;
