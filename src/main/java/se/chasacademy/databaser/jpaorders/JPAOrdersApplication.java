@@ -28,7 +28,8 @@ public class JPAOrdersApplication implements CommandLineRunner {
 	@Override
 	@Transactional
 	public void run(String... args) throws Exception {
-		for (Customer customer : customerRepository.findAll()) {
+        System.out.println("-----------------------------------");
+        for (Customer customer : customerRepository.findAll()) {
 			System.out.println("Customer: " + customer.getFirstName() + " " + customer.getLastName() + ", created at: "
 					+ customer.getCreatedAt());
 
@@ -39,9 +40,11 @@ public class JPAOrdersApplication implements CommandLineRunner {
 			});
 		}
 
-        orderRepository.findAll().forEach( o -> {System.out.println(o); o.getOrder_entries().forEach(ol->System.out.println(ol.getQuantity()+"x "+ol.getProduct()+ " " + ol.getTotal_Price_Cents()));  });
+        System.out.println("-----------------------------------");
 
+        orderRepository.findAll().forEach( o -> {System.out.println(o); o.getOrder_entries().forEach(ol->System.out.println("  "+ol.getQuantity()+"x "+ol.getProduct()+ " " + ol.getTotal_Price_Cents()));  });
 
+        System.out.println("-----------------------------------");
 
 	}
 }
