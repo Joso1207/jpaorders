@@ -17,7 +17,7 @@ public class Product {
     @Column(name = "PROD_DESC",length = 500)
     private String description;
 
-    @Column(name = "UNIT_PRICE_CENTS",nullable = false,columnDefinition = "INTEGER CHECK (UNIT_PRICE_CENTS > 0)")
+    @Column(name = "UNIT_PRICE_CENTS",nullable = false,columnDefinition = "INT CHECK (UNIT_PRICE_CENTS > 0)")
     private int price_in_cents;
 
     @Column(name = "ACTIVE_FLAG",nullable = false,columnDefinition = "DEFAULT 'Y'")
