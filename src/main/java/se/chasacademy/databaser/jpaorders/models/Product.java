@@ -1,4 +1,4 @@
-package se.chasacademy.databaser.jpaorders.Models;
+package se.chasacademy.databaser.jpaorders.models;
 
 import jakarta.persistence.*;
 

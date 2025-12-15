@@ -1,7 +1,6 @@
-package se.chasacademy.databaser.jpaorders.Models;
+package se.chasacademy.databaser.jpaorders.models;
 
 import jakarta.persistence.*;
-import se.chasacademy.databaser.jpaorders.models.Order;
 
 @Entity
 @Table(name = "T_ORDER_LINE")
