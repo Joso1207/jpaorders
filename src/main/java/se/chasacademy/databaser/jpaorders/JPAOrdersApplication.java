@@ -4,10 +4,20 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import jakarta.transaction.Transactional;
+import se.chasacademy.databaser.jpaorders.models.Customer;
+import se.chasacademy.databaser.jpaorders.repositories.CustomerRepository;
+import se.chasacademy.databaser.jpaorders.repositories.OrderRepository;
+
 @SpringBootApplication
 public class JPAOrdersApplication implements CommandLineRunner {
 
-	public JPAOrdersApplication() {
+	private CustomerRepository customerRepository;
+	private OrderRepository orderRepository;
+
+	public JPAOrdersApplication(CustomerRepository customerRepository, OrderRepository orderRepository) {
+		this.customerRepository = customerRepository;
+		this.orderRepository = orderRepository;
 	}
 
 	public static void main(String[] args) {
@@ -15,7 +25,17 @@ public class JPAOrdersApplication implements CommandLineRunner {
 	}
 
 	@Override
+	@Transactional
 	public void run(String... args) throws Exception {
+		for (Customer customer : customerRepository.findAll()) {
+			System.out.println("Customer: " + customer.getFirstName() + " " + customer.getLastName() + ", created at: "
+					+ customer.getCreatedAt());
 
+			customer.getOrders().forEach(order -> {
+				System.out.println(" Order: " + order.getNumber() + ", date: " +
+						order.getOrderDate() + ", status: "
+						+ order.getStatusCode());
+			});
+		}
 	}
 }
