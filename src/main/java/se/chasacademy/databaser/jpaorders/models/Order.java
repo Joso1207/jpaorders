@@ -24,7 +24,7 @@ public class Order {
     private String statusCode;
 
     @OneToMany(mappedBy = "order")
-    List<OrderLine> order_entries = new ArrayList<>();
+    private List<OrderLine> order_entries = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -75,5 +75,13 @@ public class Order {
                 ", customer=" + customer +
                 ", statusCode='" + statusCode + '\'' +
                 '}';
+    }
+
+    public List<OrderLine> getOrder_entries() {
+        return order_entries;
+    }
+
+    public void setOrder_entries(List<OrderLine> order_entries) {
+        this.order_entries = order_entries;
     }
 }

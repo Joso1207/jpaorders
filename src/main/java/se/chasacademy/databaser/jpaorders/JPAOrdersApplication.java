@@ -39,7 +39,7 @@ public class JPAOrdersApplication implements CommandLineRunner {
 			});
 		}
 
-        orderRepository.findAll().forEach(System.out::println);
+        orderRepository.findAll().forEach( o -> {System.out.println(o); o.getOrder_entries().forEach(ol->System.out.println(ol.getQuantity()+"x "+ol.getProduct()+ " " + ol.getTotal_Price_Cents()));  });
 
 
 
