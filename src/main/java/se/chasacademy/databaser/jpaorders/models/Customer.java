@@ -89,4 +89,16 @@ public class Customer {
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
     }
+
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "createdAt=" + createdAt +
+                ", email='" + email + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

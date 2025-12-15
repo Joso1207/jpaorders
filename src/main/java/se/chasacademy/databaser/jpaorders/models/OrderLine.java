@@ -18,14 +18,13 @@ public class OrderLine {
     @Column(name = "LINE_TOTAL_CENTS",nullable = false,columnDefinition = "INT CHECK(QTY>0)")
     private int total_Price_Cents;
 
-    @Column(name = "PRODUCT_ID",nullable = false)
+
     @ManyToOne
-    @JoinColumn(name = "PRODUCT_ID")
+    @JoinColumn(name = "PRODUCT_ID",nullable = false)
     private Product product;
 
-    @Column(name = "ORDER_ID",nullable = false)
     @ManyToOne
-    @JoinColumn(name = "ORDER_ID")
+    @JoinColumn(name = "ORDER_ID",nullable = false)
     private se.chasacademy.databaser.jpaorders.models.Order order;
 
     public Long getId() {

@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import jakarta.transaction.Transactional;
 import se.chasacademy.databaser.jpaorders.models.Customer;
+import se.chasacademy.databaser.jpaorders.models.Order;
 import se.chasacademy.databaser.jpaorders.repositories.CustomerRepository;
 import se.chasacademy.databaser.jpaorders.repositories.OrderRepository;
 
@@ -37,5 +38,10 @@ public class JPAOrdersApplication implements CommandLineRunner {
 						+ order.getStatusCode());
 			});
 		}
+
+        orderRepository.findAll().forEach(System.out::println);
+
+
+
 	}
 }

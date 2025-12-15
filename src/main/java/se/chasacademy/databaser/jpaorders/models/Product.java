@@ -62,4 +62,15 @@ public class Product {
     public void setActive_Status(Character active_Status) {
         Active_Status = active_Status;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price_in_cents=" + price_in_cents +
+                ", Active_Status=" + Active_Status +
+                '}';
+    }
 }

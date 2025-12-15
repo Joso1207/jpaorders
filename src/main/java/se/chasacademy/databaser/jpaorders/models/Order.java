@@ -1,15 +1,10 @@
 package se.chasacademy.databaser.jpaorders.models;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "t_order")
@@ -27,6 +22,9 @@ public class Order {
     private Customer customer;
     @Column(name = "status_code", nullable = false, length = 20)
     private String statusCode;
+
+    @OneToMany(mappedBy = "order")
+    List<OrderLine> order_entries = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -66,5 +64,16 @@ public class Order {
 
     public void setStatusCode(String statusCode) {
         this.statusCode = statusCode;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", number='" + number + '\'' +
+                ", orderDate=" + orderDate +
+                ", customer=" + customer +
+                ", statusCode='" + statusCode + '\'' +
+                '}';
     }
 }
